@@ -1,0 +1,7 @@
+if(${ARCH} MATCHES "aarch64")
+    include(toolchain/aarch64)
+elseif(${ARCH} MATCHES "arm")
+    include(arm.cmake)
+elseif(${ARCH} MATCHES "x86")
+    include(toolchain/x86-64)
+endif()

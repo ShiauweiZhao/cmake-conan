@@ -1,0 +1,31 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_VERSION 1)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+set(GCC_COMPILER_VERSION "7.5.0")
+
+set(ARM_CROSS_GCC_ROOT /opt/gcc-linaro-7.5.0-2019.12-i686_aarch64-linux-gnu/bin)
+set(ARM_CROSS_GCC_PREFIX aarch64-linux-gnu)
+
+set(GCC_TARGET_PREFIX ${ARM_CROSS_GCC_ROOT}/${ARM_CROSS_GCC_PREFIX})
+
+set(CMAKE_C_COMPILER   ${GCC_TARGET_PREFIX}-gcc)
+set(CMAKE_CXX_COMPILER ${GCC_TARGET_PREFIX}-g++)
+set(CMAKE_AS           ${GCC_TARGET_PREFIX}-as)
+set(CMAKE_LD           ${GCC_TARGET_PREFIX}-ld)
+set(CMAKE_GDB          ${GCC_TARGET_PREFIX}-gdb)
+set(CMAKE_STRIP        ${GCC_TARGET_PREFIX}-strip)
+set(CMAKE_RANLIB       ${GCC_TARGET_PREFIX}-ranlib)
+set(CMAKE_OBJCOPY      ${GCC_TARGET_PREFIX}-objcopy)
+set(CMAKE_OBJDUMP      ${GCC_TARGET_PREFIX}-objdump)
+set(CMAKE_AR           ${GCC_TARGET_PREFIX}-ar)
+set(CMAKE_NM           ${GCC_TARGET_PREFIX}-nm)
+
+set(CMAKE_SKIP_RPATH TRUE CACHE BOOL "If set, runtime paths are not added when using shared libraries." )
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
+
+# it will remove default "-rdynamic" added by CMake
+set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
